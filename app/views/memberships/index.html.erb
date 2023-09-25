@@ -1,0 +1,38 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Memberships</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th colspan="1"></th>
+        <th>Member</th>
+      <th>Membership type</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Renewal date</th>
+      <th>Description</th>
+      <th>Status</th>
+      </tr>
+  </thead>
+  <tbody>
+   <% @memberships.each do |membership| %>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+            <td><%= membership.member_id %></td>
+            <td><%= membership.membership_type_id %></td>
+            <td><%= membership.start_date %></td>
+            <td><%= membership.end_date %></td>
+            <td><%= membership.renewal_date %></td>
+            <td><%= membership.description %></td>
+            <td><%= membership.status %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+ <%= link_to 'New Membership', new_membership_path, class: "button is-succes" %>
+</div>

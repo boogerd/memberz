@@ -1,0 +1,88 @@
+<%= form_with(model: organisation) do |form| %>
+  <% if organisation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
+
+      <ul>
+        <% organisation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :vat_number, class: "label" %>
+    <div class="control">
+      <%= form.text_field :vat_number, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :coc_number, class: "label" %>
+    <div class="control">
+      <%= form.text_field :coc_number, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :street, class: "label" %>
+    <div class="control">
+      <%= form.text_field :street, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+  <%= form.label :postal_code, class: "label" %>
+  <div class="control">
+    <%= form.text_field :postal_code, class: "input" %>
+  </div>
+  </div>
+
+  <div class="field">
+  <%= form.label :place, class: "label" %>
+  <div class="control">
+    <%= form.text_field :place, class: "input" %>
+  </div>
+</div>      
+
+<div class="field">
+<%= form.label :email, class: "label" %>
+<div class="control">
+  <%= form.email_field :coc_number, class: "input" %>
+</div>
+</div>
+
+<div class="field">
+<%= form.label :phone, class: "label" %>
+<div class="control">
+  <%= form.text_field :phone, class: "input" %>
+</div>
+</div>
+
+<div class="field">
+<%= form.label :iban, class: "label" %>
+<div class="control">
+  <%= form.text_field :iban, class: "input" %>
+</div>
+</div>
+
+<div class="field">
+<%= form.label :mandate_contract_no, class: "label" %>
+<div class="control">
+  <%= form.text_field :mandate_contract_no, class: "input" %>
+</div>
+</div>
+
+ <div class="field is-grouped">
+    <%= link_to "Back", organisations_path, class: "button is-info mr-2" %>
+    <%= form.submit class: 'button is-primary' %>  
+  </div>
+<% end %>

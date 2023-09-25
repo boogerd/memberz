@@ -1,0 +1,117 @@
+<%= form_with(model: member) do |form| %>
+  <% if member.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+        <% member.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :salutation, class: "label" %>
+    <div class="control">
+      <%= form.text_field :salutation, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :street, class: "label" %>
+    <div class="control">
+      <%= form.text_field :street, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal_code, class: "label" %>
+    <div class="control">
+      <%= form.text_field :postal_code, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :place, class: "label" %>
+    <div class="control">
+      <%= form.text_field :place, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, class: "label" %>
+    <div class="control">
+      <%= form.text_field :email, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone, class: "label" %>
+    <div class="control">
+      <%= form.text_field :phone, class: "input" %>
+    </div>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :start_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :start_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :end_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :direct_debit, class: "label" %>
+    <div class="control">
+      <%= form.check_box :direct_debit, class: "checkbox" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :iban, class: "label" %>
+    <div class="control">
+      <%= form.text_field :iban, class: "input" %>
+    </div>
+  </div>
+  
+  <div class="field">
+    <%= form.label :mandate_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :mandate_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :account_holder, class: "label" %>
+    <div class="control">
+      <%= form.text_field :account_holder, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :terms, class: "label" %>
+    <div class="control">
+      <%= form.number_field :terms, class: "input" %>
+    </div>
+  </div>
+
+ <div class="field is-grouped">
+    <%= link_to "Back", members_path, class: "button is-info mr-2" %>
+    <%= form.submit class: 'button is-primary' %>  
+  </div>
+<% end %>

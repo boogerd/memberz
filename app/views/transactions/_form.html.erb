@@ -1,0 +1,67 @@
+<%= form_with(model: transaction) do |form| %>
+  <% if transaction.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :transaction_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :transaction_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :transaction_number, class: "label" %>
+    <div class="control">
+      <%= form.text_field :transaction_number, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :transaction_amount, class: "label" %>
+    <div class="control">
+      <%= form.text_field :transaction_amount, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, class: "label" %>
+    <div class="control">
+      <%= form.text_field :description, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :account_id, class: "label" %>
+    <div class="select">
+      <%= form.collection_select :account_id, Account.all, :id, :name, { prompt: true }  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :organisation_id, class: "label" %>
+    <div class="select">
+      <%= form.collection_select :organisation_id, Organisation.all, :id, :name, { prompt: true }  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :transaction_text, class: "label" %>
+    <div class="control">
+      <%= form.text_area :transaction_text, class: "input" %>
+    </div>
+  </div>
+
+ <div class="field is-grouped">
+    <%= link_to "Back", transactions_path, class: "button is-info mr-2" %>
+    <%= form.submit class: 'button is-primary' %>  
+  </div>
+<% end %>

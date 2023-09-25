@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction_date: 2023-09-04
+  transaction_number: MyString
+  transaction_amount: 1.5
+  description: MyString
+  account: one
+  organisation: one
+  transaction_text: MyText
+
+two:
+  transaction_date: 2023-09-04
+  transaction_number: MyString
+  transaction_amount: 1.5
+  description: MyString
+  account: two
+  organisation: two
+  transaction_text: MyText

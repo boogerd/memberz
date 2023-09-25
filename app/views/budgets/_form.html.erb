@@ -1,0 +1,53 @@
+<%= form_with(model: budget) do |form| %>
+  <% if budget.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+
+      <ul>
+        <% budget.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :account_id, class: "label" %>
+    <div class="select">
+      <%= form.collection_select :account_id, Account.all, :id, :name, { prompt: true }  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :period_id, class: "label" %>
+    <div class="select">
+      <%= form.collection_select :period_id, Period.all, :id, :name, { prompt: true }  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :organisation_id, class: "label" %>
+    <div class="select">
+      <%= form.collection_select :organisation_id, Organisation.all, :id, :name, { prompt: true }  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount, class: "label" %>
+    <div class="control">
+      <%= form.text_field :amount, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks, class: "label" %>
+    <div class="control">
+      <%= form.text_field :remarks, class: "input" %>
+    </div>
+  </div>
+
+ <div class="field is-grouped">
+    <%= link_to "Back", budgets_path, class: "button is-info mr-2" %>
+    <%= form.submit class: 'button is-primary' %>  
+  </div>
+<% end %>

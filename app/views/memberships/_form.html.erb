@@ -1,0 +1,67 @@
+<%= form_with(model: membership) do |form| %>
+  <% if membership.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
+
+      <ul>
+        <% membership.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :member_id, class: "label" %>
+    <div class="select">
+      <%= form.collection_select :member_id, Member.all, :id, :name, { prompt: true }  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :membership_type_id, class: "label" %>
+    <div class="select">
+      <%= form.collection_select :membership_type_id, MembershipType.all, :id, :name, { prompt: true }  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :start_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :end_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :renewal_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :renewal_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, class: "label" %>
+    <div class="control">
+      <%= form.text_field :description, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :status, class: "label" %>
+    <div class="control">
+      <%= form.text_field :status, class: "input" %>
+    </div>
+  </div>
+
+ <div class="field is-grouped">
+    <%= link_to "Back", memberships_path, class: "button is-info mr-2" %>
+    <%= form.submit class: 'button is-primary' %>  
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+nl:
+  account:
+    number: "Rekeningnummer"
+    description: "Omschrijving"
+    account_type: "Rekeningsoort"
+  address:
+    addres_line: "Adres"
+    postal_code: "Postcode"
+    place: "Plaats"
+    address_type: "Adrestype"
+  bank_account:
+    name: "Naam"
+    account_number: "Bankrekeningnummer"
+    iban: "Iban"
+    swift: "Swift"
+    default_acount: "Is standaard rekening"
+  member:
+    salutation: "Aanhef"
+    name: "Naam"
+    street: "Adres"
+    postal_code: "Postcode"
+    place: "Plaats"
+    email: "Email"
+    phone: "Telefoon"
+    start_date: "Startdatum"
+    end_date: "Einddatum"
+    direct_debit: "Incasso"
+    iban: "IBAN"
+    mandate_date: "Mandaat datum"
+    account_holder: "Rekeninghouder"
+    terms: "Termijnen"

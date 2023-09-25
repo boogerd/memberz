@@ -1,0 +1,17 @@
+<%= form_tag import_members_path, method: :post, multipart: true do %>
+    <div class="file">
+        <label class="file-label">
+            <%= file_field_tag :file, accept: ".csv" %>
+            <span class="file-cta">
+                <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                    Kies bestand
+                </span>
+            </span>
+        </label>
+    </div
+    
+    <%= submit_tag 'Import' %>
+<% end %>

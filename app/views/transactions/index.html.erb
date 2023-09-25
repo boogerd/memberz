@@ -1,0 +1,42 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Transactions</h1>
+
+
+<%= render "import" %>
+
+
+<table class="table">
+  <thead>
+    <tr>
+    <th colspan="1"></th>
+    <th>Transaction number</th>
+      <th>Transaction date</th>
+      <th>Transaction amount</th>
+      <th>Description</th>
+      <th>Account</th>
+      <th>Organisation</th>
+      <th>Transaction text</th>
+      </tr>
+  </thead>
+  <tbody>
+   <% @transactions.each do |transaction| %>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+            <td><%= link_to transaction.transaction_number, edit_transaction_path(transaction.id) %></td>
+            <td><%= transaction.transaction_date %></td>
+            <td><%= transaction.transaction_amount %></td>
+            <td><%= transaction.description %></td>
+            <td><%= transaction.account_id %></td>
+            <td><%= transaction.organisation_id %></td>
+            <td><%= transaction.transaction_text %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+ <%= link_to 'New Transaction', new_transaction_path, class: "button is-succes" %>
+</div>

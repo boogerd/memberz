@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member: one
+  membership_type: one
+  start_date: 2023-09-02
+  end_date: 2023-09-02
+  renewal_date: 2023-09-02
+  description: MyString
+  status: MyString
+
+two:
+  member: two
+  membership_type: two
+  start_date: 2023-09-02
+  end_date: 2023-09-02
+  renewal_date: 2023-09-02
+  description: MyString
+  status: MyString

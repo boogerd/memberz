@@ -1,0 +1,28 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Member groups</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th colspan="1"></th>
+      <th>Name</th>
+      <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+   <% @member_groups.each do |member_group| %>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+            <td><%= link_to member_group.name, edit_member_group_path(member_group.id) %></td>
+            <td><%= member_group.price %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+ <%= link_to 'New Member Group', new_member_group_path, class: "button is-succes" %>
+</div>

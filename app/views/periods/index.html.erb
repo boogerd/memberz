@@ -1,0 +1,36 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Periods</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th colspan="1"></th>
+    <th>Description</th>
+        <th>Start date</th>
+      <th>End date</th>
+      <th>Organisation</th>
+      <th>Status</th>
+
+      </tr>
+  </thead>
+  <tbody>
+   <% @periods.each do |period| %>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td><%= link_to period.description, edit_period_path(period.id) %></td>
+            <td><%= period.start_date %></td>
+            <td><%= period.end_date %></td>
+            <td><%= period.organisation_id %></td>
+            <td><%= period.status %></td>
+
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+ <%= link_to 'New Period', new_period_path, class: "button is-succes" %>
+</div>

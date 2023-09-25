@@ -1,0 +1,25 @@
+<aside class="menu">
+  <p class="menu-label">
+    Ledenadministratie
+  </p>
+  <ul class="menu-list">
+    <li><%= link_to "Leden", members_path %></li>
+    <li><%= link_to "Groepen", member_groups_path %></li>
+  </ul>
+  <p class="menu-label">
+    Boekhouding
+  </p>
+  <ul class="menu-list">
+    <li><%= link_to "Facturen", invoices_path %></li>
+    <li><%= link_to "Transacties", transactions_path %></li>
+    <li><%= link_to "Begroting", budgets_path %></li>
+  </ul>
+  <p class="menu-label">
+    Instellingen
+  </p>
+  <ul class="menu-list">
+    <li><%= link_to "Organisatie", organisations_path %></li>
+    <li><%= link_to "Rekeningen", accounts_path %></li>
+    <li><%= link_to "Boekjaren", periods_path %></li>
+  </ul>
+</aside>

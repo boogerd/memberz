@@ -1,0 +1,30 @@
+<div class="container">
+<p id="notice"><%%= notice %></p>
+
+<h1><%= human_name.pluralize %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th colspan="1"></th>
+    <% attributes.reject(&:password_digest?).each do |attribute| -%>
+    <th><%= attribute.human_name %></th>
+  <% end -%>
+    </tr>
+  </thead>
+  <tbody>
+   <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+  <% attributes.reject(&:password_digest?).each do |attribute| -%>
+          <td><%%= <%= singular_table_name %>.<%= attribute.column_name %> %></td>
+  <% end -%>
+        </tr>
+      <%% end %>
+  </tbody>
+</table>
+
+ <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_route_name %>_path, class: "button is-succes" %>
+</div>

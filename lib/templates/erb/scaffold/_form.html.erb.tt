@@ -1,0 +1,54 @@
+<%%= form_with(model: <%= model_resource_name %>) do |form| %>
+  <%% if <%= singular_table_name %>.errors.any? %>
+    <div style="color: red">
+      <h2><%%= pluralize(<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
+
+      <ul>
+        <%% <%= singular_table_name %>.errors.each do |error| %>
+          <li><%%= error.full_message %></li>
+        <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+
+<% attributes.each do |attribute| -%>
+  <div class="field">
+<% if attribute.password_digest? -%>
+    <%%= form.label :password, class: "label" %>
+    <div class="control">
+      <%%= form.password_field :password, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%%= form.label :password_confirmation, class: "label" %>
+    <div class="control">
+      <%%= form.password_field :password_confirmation, class: "input" %>
+    </div>
+<% elsif attribute.attachments? -%>
+    <%%= form.label :<%= attribute.column_name %>, class: "label" %>
+    <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, multiple: true %>
+<% elsif attribute.type == :boolean -%>
+    <%%= form.label :<%= attribute.column_name %>, class: "label" %>
+    <div class="control">
+      <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: "checkbox" %>
+    </div>
+<% elsif attribute.reference? -%>
+    <%%= form.label :<%= attribute.column_name %>, class: "label" %>
+    <div class="select">
+      <%%= form.collection_select :<%= attribute.column_name %>, <%= attribute.name.camelize %>.all, :id, :name, { prompt: true }  %>
+    </div>
+<% else -%>
+    <%%= form.label :<%= attribute.column_name %>, class: "label" %>
+    <div class="control">
+      <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: "input" %>
+    </div>
+<% end -%>
+  </div>
+
+<% end -%>
+ <div class="field is-grouped">
+    <%%= link_to "Back", <%= index_helper(type: :path) %>, class: "button is-info mr-2" %>
+    <%%= form.submit class: 'button is-primary' %>  
+  </div>
+<%% end %>

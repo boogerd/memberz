@@ -1,0 +1,41 @@
+<%= form_with(model: member_group) do |form| %>
+  <% if member_group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(member_group.errors.count, "error") %> prohibited this member_group from being saved:</h2>
+
+      <ul>
+        <% member_group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+  <%= form.label :price, class: "label" %>
+  <div class="control">
+    <%= form.number_field :price, class: "input" %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, class: "label" %>
+    <div class="control">
+      <%= form.text_area :description, class: "textarea" %>
+    </div>
+  </div>
+
+
+
+ <div class="field is-grouped">
+    <%= link_to "Back", member_groups_path, class: "button is-info mr-2" %>
+    <%= form.submit class: 'button is-primary' %>  
+  </div>
+<% end %>

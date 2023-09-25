@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2023-09-04
+  end_date: 2023-09-04
+  organisation: one
+  status: MyString
+  description: MyString
+
+two:
+  start_date: 2023-09-04
+  end_date: 2023-09-04
+  organisation: two
+  status: MyString
+  description: MyString

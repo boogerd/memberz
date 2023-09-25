@@ -1,0 +1,34 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Budgets</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th colspan="1"></th>
+        <th>Account</th>
+      <th>Period</th>
+      <th>Organisation</th>
+      <th>Amount</th>
+      <th>Remarks</th>
+      </tr>
+  </thead>
+  <tbody>
+   <% @budgets.each do |budget| %>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+            <td><%= budget.account_id %></td>
+            <td><%= budget.period_id %></td>
+            <td><%= budget.organisation_id %></td>
+            <td><%= budget.amount %></td>
+            <td><%= budget.remarks %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+ <%= link_to 'New Budget', new_budget_path, class: "button is-succes" %>
+</div>

@@ -1,0 +1,67 @@
+<%= form_with(model: invoice) do |form| %>
+  <% if invoice.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+        <% invoice.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.label :member_id, class: "label" %>
+  <div class="select">
+    <%= form.collection_select :member_id, Member.all, :id, :name, { prompt: true }  %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :invoice_number, class: "label" %>
+    <div class="control">
+      <%= form.text_field :invoice_number, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :invoice_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :invoice_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :due_date, class: "label" %>
+    <div class="control">
+      <%= form.date_field :due_date, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+  <%= form.label :quantity, class: "label" %>
+  <div class="control">
+    <%= form.number_field :quantity, class: "input" %>
+  </div>
+  </div>
+
+  <div class="field">
+  <%= form.label :price, class: "label" %>
+  <div class="control">
+    <%= form.number_field :price, class: "input" %>
+  </div>
+  </div>
+
+  <div class="field">
+  <%= form.label :description, class: "label" %>
+  <div class="control">
+    <%= form.text_field :description, class: "input" %>
+  </div>
+  </div>
+  
+ <div class="field is-grouped">
+    <%= link_to "Back", invoices_path, class: "button is-info mr-2" %>
+    <%= form.submit class: 'button is-primary' %>  
+  </div>
+<% end %>
