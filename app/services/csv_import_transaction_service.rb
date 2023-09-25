@@ -21,5 +21,7 @@ class CsvImportTransactionService
             transaction_hash [:transaction_type] = row['Mutatiesoort']
 
         Transaction.find_or_create_by!(transaction_hash)
+
+        end
     end
 end
